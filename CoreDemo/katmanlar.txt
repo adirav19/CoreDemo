@@ -1,0 +1,64 @@
+n tier architecture
+
+1 entity layer - tablolar ve stunlar - class olarak tutulur
+	concrete --> sınıf gibi somut değerler burada toplanır
+2 data acces layer - veri erişim katmanı- crud operasyonlarıburda tutulur
+	create
+	read
+	update
+	delete 4 operasyonlar bunlardır.
+3 bussines layer - geçerlilik doğrulama işlemlerinin yapıldığı katmandır.
+4 presentation - sunum katmanı user interface olarak da adlandırılır
+5 core layer - 
+6 api
+
+
+
+data acceslayer katmanında sadece entitiy katmanındaki değerler kullnaılır
+bussines katmanında hem entitity hemde data katmanındaki değerler kullanılır
+uı katmanında da 3 katmanın verileri kullanılır.
+ana katman entitylayerdir.
+
+
+generic repository nin ne olduğunu kısaca açıklamak gerekirse
+	bir kova var bu kovayla a nesnesi su taşır b nesnesi kum taşır ama işlem aynıdır
+	işlem taşımadır değişmez sadece ne taşınacağı değişir. biz burada generic repositoryi kova 
+	olarak düşünebiliriz. generic repositorinin içinde crud operasyonları yer almaktadur
+	create - read - update - delete 
+	herbir crud operasyonuna ait bir metot tanımlanır, metodların imzaso olarak interfaceler kullanılır
+	absract üzerinde soyut ifade olarak interfaceleri tanımlar
+	concrete üzeride somut ifade olarak oluşturulan interface metotlarıın içi doldurulur.
+	yapı generic olunca yapı bütüne uygulanmış olur.
+
+bussines katmanında abstract klasorundeki interfaceler servis olarak adlandırılır.
+bussines katamnın concrete klasorundeki sınıflar manager olarak adlandırılır.
+bussines katmanının olayı şudur
+	validasyon yani geçerilik kurallarının kontrolleri yapılır
+	örnek şaart blog adı boş geçilemez
+	content alanı boş geçilemez
+	tarih boş geçilmeez
+	en fazla 20 karakter girilebilir
+	2 mb foto boyutu vs vs
+
+	efcategoryrepository clasının yaptığı iş 2 tane clası birleştirmektir sadece 
+	dha sonra bu klasları managerlerde kullanıyoruz. kalıtım yoluyla
+
+
+.net bilen birinden beklentiler nelerdir
+	-c#
+	-entitiyframework
+	-entitiyframework core
+	-code first yakkalışımı
+	-n tier architecture
+	-soyut mimariye hakimiyet
+	-ducker
+	-
+
+
+
+
+
+
+
+	araştırılacaklar
+	 list ve Icollection arasındaki fark nedir ?

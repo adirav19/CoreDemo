@@ -1,0 +1,34 @@
+﻿
+
+@using EntityLayer.Concrete
+@{
+    ViewData["Title"] = "CheckOut";
+    Layout = "~/Views/Shared/ShowroomLayout.cshtml";
+}
+@using (Html.BeginForm("CheckOut", "Blog", FormMethod.Post))
+{
+    <form action="/CheckOut" method="post">
+        <br />
+        <h1>CheckOut</h1>
+        <br />
+        <div>Kart bilgilerini doldurun000</div>
+        <br />
+        <table>
+            <tr>
+                <th>Kart num</th>
+                <th>Kart üzeridneki ad soyad</th>
+                <th>ccv</th>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="kart num" /></td>
+                <td><input type="text" placeholder="ad soyad" /></td>
+                <td><input type="text" placeholder="ccv" /></td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+        <br /><br />
+    </form>
+}

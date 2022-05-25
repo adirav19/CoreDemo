@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete
+@model  List<Blog>
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>BlogListByWriter</h1>
+
+<table>
+    <tr>
+        <th>blogid</th>
+        <th>Blog Başlık</th>
+        <th>oluşturma tarihi</th>
+        <th>Kategori</th>
+        <th>Durum</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.BlogID</td>
+                    <td>@item.BlogTitle</td>
+                    <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.BlogStatus</td>
+                    <td><a href="/Blog/DeleteBlog/@item.BlogID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Blog/EditBlog/@item.BlogID" class="btn btn-danger">Düzenle</a></td>
+                </tr>
+            }
+</table>
+<a href="/Blog/BlogAdd/" class="btn btn-danger">yeni blog oluştur</a>
+<a href="/Blog/Index/" class="btn btn-dark">Siteye git not: sil butonuna tıklayınca gerçekten silmek istiyormusun uyarısı çıkmaası lazım</a>
+<a>Not 2 : ture false statuleri statik hale getirilecek, bunlar haricinde sitenin index kısmında sliderde statusu flase olanlar gözükmeyecekk
+    . blogların silinme işlemleri olacak fakat kullanıcı silme yapmaması içiin
+     aynı zamanda veri kaybını önlemek için kullanııcı false yapsın diye 
+    ikaz gösterilecek 2-4 tane arka arkaya biraz komiklik olsun 
+    işin içinde amaçlı</a>

@@ -42,7 +42,21 @@ bussines katmanının olayı şudur
 
 	efcategoryrepository clasının yaptığı iş 2 tane clası birleştirmektir sadece 
 	dha sonra bu klasları managerlerde kullanıyoruz. kalıtım yoluyla
+**********************
+örnek writer sınfında register işlemi için kullanılacak adımlar şöyledir.
+	-bussineslayerda abstracta IWriterService Interface i eklenir(içini ona göre doldurursun)
+	-Concrete klasörüne WriterManager sınıfını oluşturup IWriterService den kalıtım alırsın
+	-arabirimi iplemente ediyoruz WriterManager Sınıfına
+	-WriterManager de globale IWriterDal _writerdal; tanımlamasını yapıyoruz 
+	-WriterManagerde bu tanımlamadan sonra oluşturucuyu oluşturuyoruz.
+	-iplemente edilen fonksiyonun içini fonksiyona göre doldur.
+	//YILDIZLARIN ARASINDAKİ İŞLEMLER GENERİC YAPIYA SAHİP DEĞİLDİR. !
+**********************
+**********************
+**********************
 
+Viewbag ile id değerini viewcomponent de taşıyabiiliriz. örnek blogreadall.cshtml sayfasının 
+61. satırında mevcuttur önemli bir örnek ***
 
 .net bilen birinden beklentiler nelerdir
 	-c#
@@ -52,13 +66,57 @@ bussines katmanının olayı şudur
 	-n tier architecture
 	-soyut mimariye hakimiyet
 	-ducker
-	-
+	
+
+	
+	
+	
+Eager Loading: nesneyi ihtiyaç anından hemen önce oluşturur ve bekletir. 
+Linq sorgusu çalıştırıldığında verilerin tamamını yükler ve hafızaya alır. 
+Daha ucuz maliyetlidir.
+Lazy Loading : Bu yöntemde veriler sorguya bağlı olarak çekilir ancak veri setinin içindeki tüm 
+dataları yüklemek yerine verilerin çağrıldıkça otomatik yüklenmesi söz konusudur. 
+Daha pahalı işlemdir.
 
 
+view component ve partial arasındaki farklar nelerdir.
 
+	MVC’nin önceki sürümlerinde birden fazla alanda kullanmak istediğimiz bileşenleri
+	genellikle Partial View olarak tasarlar ve [ChildActionOnly] attribute ile birlikte 
+	tek başlarına çağrılmalarını engellerdik. Bu yapı bizim için büyük kolaylık sağlardı.
+	Asp.Net Core ile birlikte [ChildActionOnly] attribute kullanımı kaldırılmış ve yeni 
+	ViewComponent yapısı geliştirilmiştir. ViewComponentler dışarıdan Http istek ile doğrudan
+	ulaşılamazlar. Ve view components'lar partial view'e  çok benzer, ancak partial view'e kıyasla
+	çok daha güçlüdür. view components'lar model bağlama kullanmaz. Ancak, yalnızca onu 
+	çağırdığımızda sağlanan verilerle çalışır. partial view  gibi, view componentsi de 
+	controller'lara bağlı değildir. Bileşenin modelini ve ustura biçimlendirme görünüm sayfasını 
+	geliştirmek için mantığı uygulamak için kendi sınıfına sahiptir. En önemli şey, View 
+	Components'ın bağımlılık enjeksiyonunu kullanabilmesidir, bu da onları çok güçlü ve test
+	edilebilir kılar.
+		Yapısı itibariyle partial view, 
+		ihtiyacımızı büyük ölçüde gideren bir özellik olmasına rağmen server işlemlerine ihtiyaç
+		duyulduğu noktada MVC paternine fazladan yük bindirmekte ve lüzumsuz bir maliyet israfına 
+		sebebiyet verebilmektedir. Bu maliyet, her server işleminde Controller katmanıyla iletişim
+		kurmak zorunda kalmasından dolayı arz etmektedir.
+		İşte bu duruma istinaden .NET geliştiricileri Asp.NET Core 2 MVC’de partial view’in
+		bu yükünü ortadan kaldırabilmek için View Component yapılarını geliştirmişlerdir
 
 
 
 
 	araştırılacaklar
 	 list ve Icollection arasındaki fark nedir ?
+
+	şahsi eklenecekler 
+		hover ile büyütme efekti - site daha göz alıcı olması adına
+
+blogreadall sayfasında herhangi bir yorum yoksa "bu blogta henüz yorum yapılmadı ilk yorumu siz yapın"
+yazacak
+
+Önemli 
+https://www.youtube.com/watch?v=vs8uFihEFkg&list=PLKnjBHu2xXNNkinaVhPqPZG0ubaLN63ci&index=74
+sıfırdan yeni birşey ekleme burda 
+
+
+öenmli
+99. ders istatistik 1 den  106.ders ajax a atlıyorum

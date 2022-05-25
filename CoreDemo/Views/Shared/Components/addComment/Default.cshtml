@@ -1,0 +1,43 @@
+﻿
+
+@*addcomponent vievi şuan için kullanılmıor*@
+@using EntityLayer.Concrete
+
+<div class="comment-top">
+    <h4>Yorum Yap viewcomponent3</h4>
+    <div class="comment-bottom">
+        <form action="#">
+            <input class="form-control" type="text" id="CommentUserName" placeholder="adınız soyadınız" required="">
+            <input class="form-control" type="text" id="CommentTitle" placeholder="Konu" required="">
+
+
+            <textarea class="form-control" id="CommentContent" placeholder="Yorumunuz.." required=""></textarea>
+            <button id="updateDatas" class="btn btn-primary submit">Yorum Yap</button>
+        </form>
+    </div>
+</div>
+
+
+@*
+    <script>
+        $("#updateDatas").click()
+    </script>
+
+    let writer = {
+                    ID: $("#updatewriterid").val(),
+                    Name: $("#updatewritername").val()
+                };
+
+
+    public class ajaxData
+            {
+                public string CommentUserName { get; set; }
+                public string CommentTitle { get; set; }
+                public string CommentContent { get; set; }
+            }
+            [HttpPost]
+            public PartialViewResult addComment(ajaxData data)
+            {
+
+                return PartialView();
+            }*@

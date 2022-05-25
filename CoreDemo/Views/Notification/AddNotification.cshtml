@@ -1,0 +1,22 @@
+﻿@model EntityLayer.Concrete.Notification
+@{
+    ViewData["Title"] = "AddNotification";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>AddNotification</h1>
+  
+<h1>Yeni Blog Girişi</h1>
+@using (Html.BeginForm("AddNotification", "Notification", FormMethod.Post))
+{
+    @Html.Label("Bildirim Türü örn: doğum günü")
+    @Html.TextBoxFor(x => x.NotificationType, new { @class = "form-control" })
+    
+    <br />
+    @Html.Label("Bildirim İçeriği")
+    @Html.TextBoxFor(x => x.NotificationDetails, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.NotificationDetails)
+    <br />
+    
+    <button class="btn btn-info">Kaydet</button>
+}

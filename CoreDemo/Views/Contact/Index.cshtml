@@ -1,0 +1,136 @@
+﻿@model IEnumerable<EntityLayer.Concrete.Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/ShowroomLayout.cshtml";
+}
+
+
+<html>
+<link href="~/web/css/contact.css" rel='stylesheet' type='text/css' />
+
+
+
+
+<body>
+
+    <!--/main-->
+    <section class="main-content-w3layouts-agileits">
+
+        <h3 class="tittle">Bize Ulaşın</h3>
+        <p class="sub text-center">Düşünceleriniz bizim için çok değerlidir..</p>
+        <div class="contact-map inner-sec">
+            <iframe src="https://maps.google.com/maps?width=100%25&amp;height=500&amp;hl=en&amp;q=atat%C3%BCrk%20park%C4%B1%20denizli+(Emir%20%C3%96z%C3%A7elik)&amp;t=&amp;z=7&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                    class="map" style="border:0" allowfullscreen=""></iframe>
+        </div>
+
+        <div class="ad-inf-sec bg-light">
+            <div class="container">
+                <div class="address row">
+
+                    <div class="col-lg-4 address-grid">
+                        <div class="row address-info">
+                            <div class="col-md-4 address-left text-center">
+                                <i class="far fa-map"></i>
+                            </div>
+                            <div class="col-md-8 address-right text-left">
+                                <h6>Adres</h6>
+                                <p>
+                                    Denizli, TR
+
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 address-grid">
+                        <div class="row address-info">
+                            <div class="col-md-4 address-left text-center">
+                                <i class="far fa-envelope"></i>
+                            </div>
+                            <div class="col-md-8 address-right text-left">
+                                <h6>Email</h6>
+                                <p>
+                                    Email :
+                                    <a href="mailto:example@email.com"> emirozcelik@blog.com</a>
+
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 address-grid">
+                        <div class="row address-info">
+                            <div class="col-md-4 address-left text-center">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="col-md-8 address-right text-left">
+                                <h6>Telefon</h6>
+                                <p>+90 507 733 66 90</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact_grid_right">
+                <form action="#" method="post">
+                    <div class="row contact_left_grid">
+                        <div class="col-md-6 con-left">
+                            <div class="form-group">
+                                <label for="validationCustom01 my-2">Adınız</label>
+                                <input class="form-control" type="text" id="ContactUserName" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Mail Adresiniz</label>
+                                <input class="form-control" type="email" id="ContactMail" placeholder="" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="validationCustom03 my-2">Konu</label>
+                                <input class="form-control" type="text" id="ContactSubject" placeholder="" required="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 con-right">
+                            <div class="form-group">
+                                <label for="textarea">Mesajınız</label>
+                                <textarea id="ContactMessage" placeholder=""></textarea>
+                            </div>
+                            <input class="form-control" id="sendmessage" type="submit" value="Gönder">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+  
+    @section scripts
+    {
+
+        <script>
+
+            $("#sendmessage").click(function () {
+                let contact = {
+                    SenderName: $("#ContactUserName").val(),
+                    MessageTitle: $("#ContactSubject").val(),
+                    MessageContent: $("#ContactMessage").val(),
+                    SenderMail: $("#ContactMail").val()
+                };
+                $.ajax({
+                    type: "post",
+                    url: "/Contact/sendMessage/",
+                    data: contact,
+                    success: function (func2) {
+                        let result = jQuery.parseJSON(func2);
+                        alert("Mesajınz Gönderilmiştir.")
+                    }
+                });
+            });
+
+        </script>
+    }
+</body>
+
+</html>

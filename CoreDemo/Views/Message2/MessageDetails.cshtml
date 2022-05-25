@@ -1,0 +1,25 @@
+﻿
+
+@model EntityLayer.Concrete.Message2
+
+
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+
+
+    @Html.Label("Blog id burada gizlidir.")
+    @Html.HiddenFor(x => x.MessageID)
+    <br />
+    @Html.Label("Mesaj Başlığı")
+    @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mesaj içeriği")
+    @Html.TextAreaFor(x => x.MessageDetails,10,3, new { @class = "form-control" })
+   
+    <a href="#" class="btn btn-success"> Cevapla</a>
+
+<br />
+<a href="/Message2/InBox/" class="btn btn-danger">Geri</a>

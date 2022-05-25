@@ -1,0 +1,48 @@
+﻿<div class="tech-btm">
+    <p>İş hukuku,Ceza Hukuku ve diğer bloglar </p>
+    <form action="#" method="post">
+        <input id="guessemail" type="email" placeholder="Email" required="">
+        @*<button class="btn btn-primary" id="subscribe" type="submit">Abone ol</button>*@
+        <input type="submit" id="subscribe" value="Abone Ol" />
+    </form>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $("#subscribe").click(function () {
+        let newslettersub = {
+            Mail: $("#guessemail").val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/Blog/newslettersub/",
+            data: newslettersub,
+            success: function (func3) {
+                let result = jQuery.parseJSON(func3);
+                alert("Abone olundu");
+
+            }
+        });
+    });
+</script>
+@*<div>burada kullanılan renderseciton dğer yerlerde bu sayann göürmmesini sağlıyor !!</div>
+
+    @section script2{
+        <script>
+            $("#subscribe").click(function () {
+                                    let newslettersub = {
+                                        Mail: $("#guessemail").val()
+                                    };
+                                    $.ajax({
+                                        type: "post",
+                                        url: "/Blog/newslettersub/",
+                                        data: newslettersub,
+                                        success: function (func2) {
+                                            let result = jQuery.parseJSON(func2);
+                                            alert("Abone olundu");
+
+                                        }
+                                    });
+                                });
+        </script>
+        }*@
